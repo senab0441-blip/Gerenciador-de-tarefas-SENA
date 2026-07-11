@@ -1,0 +1,409 @@
+/* ==========================================================================
+   1. RESET E VARIÁVEIS GLOBAIS
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #10151f;
+  --color-surface: #1a2233;
+  --color-surface-light: #232d42;
+  --color-border: #2e3a52;
+
+  --color-primary: #4f7cff;
+  --color-primary-hover: #3d67e6;
+
+  --color-text: #eaedf2;
+  --color-text-muted: #9aa4b7;
+
+  --color-error: #ff5c72;
+  --color-success: #3ecf8e;
+  --color-warning: #f5b942;
+
+  /* Espaçamento consistente (evita valores "chutados") */
+  --space-xs: 0.4rem;
+  --space-sm: 0.8rem;
+  --space-md: 1.6rem;
+  --space-lg: 2.4rem;
+  --space-xl: 4rem;
+
+  --radius: 8px;
+  --transition: 0.2s ease-in-out;
+
+  --font-main: 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-logo: 'Yusei Magic', sans-serif;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px, facilita as contas */
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ==========================================================================
+   2. CABEÇALHO
+   ========================================================================== */
+
+.header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.header__logo {
+  text-decoration: none;
+}
+
+.header__logo-icon {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 1px;
+  font-family: var(--font-logo);
+}
+
+.header__nav {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.header__nav-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color var(--transition);
+}
+
+.header__nav-link:hover {
+  color: var(--color-text);
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.header__text {
+  color: var(--color-text-muted);
+  font-size: 1.4rem;
+}
+
+.header__login-btn {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.header__login-btn:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-light);
+}
+
+
+/* ==========================================================================
+   3. LAYOUT PRINCIPAL
+   ========================================================================== */
+
+.main {
+  flex: 1; /* empurra o footer pra baixo mesmo em páginas curtas */
+  display: flex;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.register-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-xl);
+  width: 100%;
+  max-width: 480px;
+  height: fit-content;
+}
+
+.register-card__intro {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.register-card__title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+.register-card__description {
+  color: var(--color-text-muted);
+  font-size: 1.4rem;
+}
+
+.register-card__link {
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.register-card__link:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   4. FORMULÁRIO
+   ========================================================================== */
+
+.form__group {
+  margin-bottom: var(--space-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.form__label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+/* Linha que junta o label da senha com o link "Esqueceu sua senha?" */
+.form__label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xs);
+}
+
+.form__label-row .form__label {
+  margin-bottom: 0;
+}
+
+.form__input {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface-light);
+  color: var(--color-text);
+  font-size: 1.5rem;
+  font-family: inherit;
+  width: 100%;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form__input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.2);
+}
+
+.form__input--error {
+  border-color: var(--color-error);
+}
+
+.form__input--success {
+  border-color: var(--color-success);
+}
+
+.form__error {
+  font-size: 1.2rem;
+  color: var(--color-error);
+  margin-top: var(--space-xs);
+  min-height: 1.6rem; /* evita "pulo" de layout quando o erro aparece/some */
+  display: block;
+}
+
+/* Wrapper da senha com botão de mostrar/ocultar */
+.form__password-wrapper {
+  position: relative;
+  display: flex;
+}
+
+.form__password-wrapper .form__input {
+  padding-right: 4rem;
+}
+
+.form__toggle-password {
+  position: absolute;
+  right: var(--space-sm);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  opacity: 0.6;
+  transition: opacity var(--transition);
+}
+
+.form__toggle-password:hover {
+  opacity: 1;
+}
+
+.form__submit {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: var(--space-sm);
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.form__submit:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.form__submit:active {
+  transform: scale(0.98);
+}
+
+.form__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form__feedback {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: var(--space-sm);
+  min-height: 1.6rem;
+}
+
+.form__feedback--success {
+  color: var(--color-success);
+}
+
+.form__feedback--error {
+  color: var(--color-error);
+}
+
+
+/* ==========================================================================
+   5. RODAPÉ
+   ========================================================================== */
+
+.footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer__heading {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.footer__subheading {
+  font-size: 1.4rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.footer__text {
+  font-size: 1.3rem;
+  color: var(--color-text-muted);
+}
+
+.footer__link {
+  font-size: 1.3rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer__link:hover {
+  color: var(--color-text);
+}
+
+.footer__bottom {
+  text-align: center;
+  padding: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+
+/* ==========================================================================
+   6. RESPONSIVIDADE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .header__nav {
+    display: none; /* em telas pequenas, esconde o menu (ideal seria um hamburger) */
+  }
+
+  .register-card {
+    padding: var(--space-lg);
+  }
+
+  .footer__container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+  }
+
+  .register-card__title {
+    font-size: 2rem;
+  }
+}

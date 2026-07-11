@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | SENA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== CABEÇALHO ========== -->
+  <header class="header">
+    <div class="header__container">
+      <a href="/" class="header__logo" aria-label="Página inicial">
+        <span class="header__logo-icon">SENA</span>
+      </a>
+
+      <nav class="header__nav" aria-label="Navegação principal">
+        <a href="#" class="header__nav-link">Início</a>
+        <a href="#" class="header__nav-link">Sobre</a>
+        <a href="#" class="header__nav-link">Ajuda</a>
+      </nav>
+
+      <div class="header__actions">
+        <span class="header__text">Não tem conta?</span>
+        <a href="#" class="header__login-btn">CRIAR</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== CONTEÚDO PRINCIPAL ========== -->
+  <main class="main">
+    <div class="register-card">
+
+      <div class="register-card__intro">
+        <h1 class="register-card__title">Entre na sua conta</h1>
+        <p class="register-card__description">Preencha o formulário abaixo para entrar na sua conta</p>
+      </div>
+
+      <form id="loginForm" class="form" novalidate>
+
+        <!-- Campo de nome -->
+        <div class="form__group">
+          <label for="username" class="form__label">Nome completo</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form__input"
+            placeholder="Digite seu nome completo"
+            autocomplete="name"
+            required
+          >
+          <span class="form__error" id="usernameError"></span>
+        </div>
+
+        <!-- Campo de senha -->
+        <div class="form__group">
+          <div class="form__label-row">
+            <label for="password" class="form__label">Senha</label>
+            <a href="#" class="register-card__link">Esqueceu sua senha?</a>
+          </div>
+
+          <div class="form__password-wrapper">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form__input form__input--password"
+              placeholder="Digite sua senha"
+              autocomplete="current-password"
+              required
+            >
+            <button type="button" class="form__toggle-password" id="togglePassword" aria-label="Mostrar senha">
+              <span class="form__toggle-password-icon">👁️</span>
+            </button>
+          </div>
+          <span class="form__error" id="passwordError"></span>
+        </div>
+
+        <button type="submit" class="form__submit" id="submitBtn">
+          Entrar
+        </button>
+
+        <div class="form__feedback" id="formFeedback" role="status" aria-live="polite"></div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer class="footer">
+    <div class="footer__container">
+
+      <div class="footer__column">
+        <h3 class="footer__heading">SENA</h3>
+        <p class="footer__text">Conectando pessoas e ideias desde 2024.</p>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__subheading">Empresa</h4>
+        <a href="#" class="footer__link">Sobre nós</a>
+        <a href="#" class="footer__link">Carreiras</a>
+        <a href="#" class="footer__link">Blog</a>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__subheading">Suporte</h4>
+        <a href="#" class="footer__link">Central de Ajuda</a>
+        <a href="#" class="footer__link">Contato</a>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__subheading">Legal</h4>
+        <a href="#" class="footer__link">Termos de Uso</a>
+        <a href="#" class="footer__link">Privacidade</a>
+        <a href="#" class="footer__link">Cookies</a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 SENA. Todos os direitos reservados a Bernardo Sena.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

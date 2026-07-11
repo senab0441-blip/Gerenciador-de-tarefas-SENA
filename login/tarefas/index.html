@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Tarefas | SENA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== CABEÇALHO ========== -->
+  <header class="header">
+    <div class="header__container">
+      <a href="/" class="header__logo" aria-label="Página inicial">
+        <span class="header__logo-icon">SENA</span>
+      </a>
+
+      <nav class="header__nav" aria-label="Navegação principal">
+        <a href="#" class="header__nav-link">Início</a>
+        <a href="#" class="header__nav-link">Sobre</a>
+        <a href="#" class="header__nav-link">Ajuda</a>
+      </nav>
+
+      <div class="header__actions">
+        <span class="header__text">Organize sua semana</span>
+        <a href="#" class="header__login-btn">Minha conta</a>
+      </div>
+    </div>
+  </header>
+
+<div class="layout">
+    <div class="sidebar-observacoes">
+        <p class="secao-titulo">Observações da semana</p>
+        <div id="observacoesDias"></div>
+    </div>
+
+    <div class="container">
+        <h1>Vamos fazer o que?</h1>
+
+        <div class="contador-card">
+            <p class="contador-titulo">Desde 7 de outubro de 2005</p>
+            <p class="contador-principal"><span id="contadorDias">0</span> dias</p>
+            <p class="contador-detalhe" id="contadorDetalhe"></p>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="tarefa" placeholder="Digite uma tarefa..." maxlength="100">
+            <select id="dia">
+                <option value="">Dia da semana</option>
+                <option value="Segunda-feira">Segunda-feira</option>
+                <option value="Terça-feira">Terça-feira</option>
+                <option value="Quarta-feira">Quarta-feira</option>
+                <option value="Quinta-feira">Quinta-feira</option>
+                <option value="Sexta-feira">Sexta-feira</option>
+                <option value="Sábado">Sábado</option>
+                <option value="Domingo">Domingo</option>
+            </select>
+            <input type="time" id="hora">
+            <button id="btnAdicionar">Adicionar</button>
+        </div>
+
+        <p class="secao-titulo">Pendentes (<span id="contadorPendentes">0</span>)</p>
+        <ul class="lista-itens" id="listaTarefas"></ul>
+        <p class="vazio" id="mensagemVaziaPendentes">Nenhuma tarefa pendente.</p>
+
+        <p class="secao-titulo">Concluídas (<span id="contadorConcluidas">0</span>)</p>
+        <ul class="lista-itens" id="listaConcluidas"></ul>
+        <p class="vazio" id="mensagemVaziaConcluidas">Nenhuma tarefa concluída ainda.</p>
+    </div>
+
+    <div class="calendario-lateral">
+        <div class="calendario-cabecalho">
+            <button id="btnMesAnterior" class="cal-nav" aria-label="Mês anterior">&lt;</button>
+            <p class="secao-titulo cal-titulo-mes" id="calTituloMes"></p>
+            <button id="btnMesSeguinte" class="cal-nav" aria-label="Próximo mês">&gt;</button>
+        </div>
+        <div class="cal-dias-semana" id="calDiasSemana"></div>
+        <div class="cal-grade" id="calGrade"></div>
+
+        <p class="cal-dica">Clique em um dia para marcar um evento 🎉</p>
+
+        <!-- Popup de seleção de emoji para o dia clicado -->
+        <div class="cal-popup oculto" id="calPopup">
+            <p class="cal-popup__titulo" id="calPopupTitulo">Marcar dia</p>
+            <div class="cal-popup__emojis" id="calPopupEmojis">
+                <button type="button" class="cal-popup__emoji" data-emoji="🎂">🎂</button>
+                <button type="button" class="cal-popup__emoji" data-emoji="🎉">🎉</button>
+                <button type="button" class="cal-popup__emoji" data-emoji="❤️">❤️</button>
+                <button type="button" class="cal-popup__emoji" data-emoji="✈️">✈️</button>
+                <button type="button" class="cal-popup__emoji" data-emoji="📌">📌</button>
+                <button type="button" class="cal-popup__emoji" data-emoji="⭐">⭐</button>
+                <button type="button" class="cal-popup__emoji" data-emoji="🏥">🏥</button>
+                <button type="button" class="cal-popup__emoji" data-emoji="🎓">🎓</button>
+            </div>
+            <button type="button" class="cal-popup__remover" id="calPopupRemover">Remover marcação</button>
+            <button type="button" class="cal-popup__fechar" id="calPopupFechar" aria-label="Fechar">✕</button>
+        </div>
+
+        <div class="cal-legenda" id="calLegenda"></div>
+    </div>
+</div>
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer class="footer">
+    <div class="footer__container">
+
+      <div class="footer__column">
+        <h3 class="footer__heading">SENA</h3>
+        <p class="footer__text">Conectando pessoas e ideias desde 2024.</p>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__subheading">Empresa</h4>
+        <a href="#" class="footer__link">Sobre nós</a>
+        <a href="#" class="footer__link">Carreiras</a>
+        <a href="#" class="footer__link">Blog</a>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__subheading">Suporte</h4>
+        <a href="#" class="footer__link">Central de Ajuda</a>
+        <a href="#" class="footer__link">Contato</a>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__subheading">Legal</h4>
+        <a href="#" class="footer__link">Termos de Uso</a>
+        <a href="#" class="footer__link">Privacidade</a>
+        <a href="#" class="footer__link">Cookies</a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 SENA. Todos os direitos reservados a Bernardo Sena.</p>
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

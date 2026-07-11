@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Conta | SENA</title>
+  <meta name="description" content="Crie sua conta e aproveite todos os recursos do nosso site.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <div class="header__container">
+      <a href="/" class="header__logo" aria-label="Página inicial">
+        <span class="header__logo-icon">SENA</span>
+      </a>
+
+      <nav class="header__nav" aria-label="Navegação principal">
+        <a href="#" class="header__nav-link">Início</a>
+        <a href="#" class="header__nav-link">Sobre</a>
+        <a href="#" class="header__nav-link">Ajuda</a>
+      </nav>
+
+      <div class="header__actions">
+        <span class="header__text">Já tem uma conta?</span>
+        <a href="#" class="header__login-btn">Entrar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="main">
+    <div class="register-card">
+
+      <div class="register-card__intro">
+        <h1 class="register-card__title">Crie sua conta</h1>
+        <p class="register-card__description">Preencha o formulário abaixo para criar sua conta</p>
+      </div>
+
+      <form id="registerForm" class="form" novalidate>
+
+        <!-- Campo de Nome -->
+        <div class="form__group">
+          <label for="username" class="form__label">Nome Completo</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form__input"
+            placeholder="Digite seu nome completo"
+            autocomplete="name"
+            required
+          >
+          <span class="form__error" id="usernameError"></span>
+        </div>
+
+        <!-- Campo de Email -->
+        <div class="form__group">
+          <label for="email" class="form__label">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form__input"
+            placeholder="Digite seu email"
+            autocomplete="email"
+            required
+          >
+          <span class="form__error" id="emailError"></span>
+        </div>
+
+        <!-- Data de nascimento -->
+        <div class="form__group">
+          <label for="birthdate" class="form__label">Data de Nascimento</label>
+          <input
+            type="date"
+            id="birthdate"
+            name="birthdate"
+            class="form__input"
+            autocomplete="bday"
+            required
+          >
+          <span class="form__error" id="birthdateError"></span>
+        </div>
+
+        <!-- Campo de Senha -->
+        <div class="form__group">
+          <label for="password" class="form__label">Senha</label>
+          <div class="form__password-wrapper">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form__input form__input--password"
+              placeholder="Digite sua senha"
+              autocomplete="new-password"
+              required
+            >
+            <button type="button" class="form__toggle-password" id="togglePassword" aria-label="Mostrar senha">
+              <span class="form__toggle-password-icon">👁️</span>
+            </button>
+          </div>
+
+          <!-- Indicador de força da senha -->
+          <div class="password-strength" id="passwordStrength">
+            <div class="password-strength__bar">
+              <div class="password-strength__fill" id="strengthFill"></div>
+            </div>
+            <span class="password-strength__label" id="strengthLabel"></span>
+          </div>
+
+          <ul class="password-rules" id="passwordRules">
+            <li id="ruleLength" class="password-rules__item">Mínimo de 8 caracteres</li>
+            <li id="ruleUpper" class="password-rules__item">Uma letra maiúscula</li>
+            <li id="ruleNumber" class="password-rules__item">Um número</li>
+            <li id="ruleSpecial" class="password-rules__item">Um caractere especial (!@#$%)</li>
+          </ul>
+
+          <span class="form__error" id="passwordError"></span>
+        </div>
+
+        <!-- Campo de Confirmação de Senha -->
+        <div class="form__group">
+          <label for="confirmPassword" class="form__label">Confirmar Senha</label>
+          <div class="form__password-wrapper">
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              class="form__input form__input--password"
+              placeholder="Confirme sua senha"
+              autocomplete="new-password"
+              required
+            >
+            <button type="button" class="form__toggle-password" id="toggleConfirmPassword" aria-label="Mostrar senha">
+              <span class="form__toggle-password-icon">👁️</span>
+            </button>
+          </div>
+          <span class="form__error" id="confirmPasswordError"></span>
+        </div>
+
+        <!-- Termos -->
+        <div class="form__group form__group--checkbox">
+          <input type="checkbox" id="terms" name="terms" class="form__checkbox" required>
+          <label for="terms" class="form__checkbox-label">
+            Li e concordo com os <a href="#" class="form__link">Termos de Uso</a> e a
+            <a href="#" class="form__link">Política de Privacidade</a>.
+          </label>
+          <span class="form__error" id="termsError"></span>
+        </div>
+
+        <button type="submit" class="form__submit" id="submitBtn">
+          Criar conta
+        </button>
+
+        <div class="form__feedback" id="formFeedback" role="status" aria-live="polite"></div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer class="footer">
+    <div class="footer__container">
+
+      <div class="footer__column">
+        <h3 class="footer__heading">SENA</h3>
+        <p class="footer__text">Conectando pessoas e ideias desde 2024.</p>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__subheading">Empresa</h4>
+        <a href="#" class="footer__link">Sobre nós</a>
+        <a href="#" class="footer__link">Carreiras</a>
+        <a href="#" class="footer__link">Blog</a>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__subheading">Suporte</h4>
+        <a href="#" class="footer__link">Central de Ajuda</a>
+        <a href="#" class="footer__link">Contato</a>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__subheading">Legal</h4>
+        <a href="#" class="footer__link">Termos de Uso</a>
+        <a href="#" class="footer__link">Privacidade</a>
+        <a href="#" class="footer__link">Cookies</a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 SENA. Todos os direitos reservados a Bernardo Sena.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
